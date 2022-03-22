@@ -7,12 +7,15 @@
   <title>Safari 15.4.0 mask-image bug</title>
   <style>
     .fade-bottom {
+      -webkit-mask-image: linear-gradient(to bottom, white 50%, transparent 100%);
       mask-image: linear-gradient(to bottom, white 50%, transparent 100%);
     }
     .fade-bottom-2 {
+      -webkit-mask-image: linear-gradient(to bottom, rgba(#000, 1) 50%, rgba(#000, 0) 100%);
       mask-image: linear-gradient(to bottom, rgba(#000, 1) 50%, rgba(#000, 0) 100%);
     }
     .fade-bottom-3 {
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
       mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
     }
   </style>
