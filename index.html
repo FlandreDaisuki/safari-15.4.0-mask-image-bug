@@ -15,16 +15,17 @@
       overflow-y: auto;
     }
     .fade-bottom {
+      /* 自己的實作 */
       mask-image: linear-gradient(to bottom, white 50%, transparent 100%);
-      -webkit-mask-composite: source-in;
-      mask-composite: source-in;
     }
     .fade-bottom-2 {
+      /* 前人留下來的坑 */
       mask-image: linear-gradient(to bottom, rgba(#000, 1) 50%, rgba(#000, 0) 100%), linear-gradient(to bottom, rgba(#000, 1) 0%, rgba(#000, 0) 0%);
       -webkit-mask-composite: source-in;
       mask-composite: source-in;
     }
     .fade-bottom-3 {
+      /* 小小整理前人留下來的坑 */
       mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%), linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 0%);
       -webkit-mask-composite: source-in;
       mask-composite: source-in;
@@ -44,5 +45,14 @@
       Habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Elit sed vulputate mi sit amet mauris commodo. Tincidunt vitae semper quis lectus nulla at volutpat diam. Et netus et malesuada fames ac turpis egestas maecenas. Orci nulla pellentesque dignissim enim sit. Mauris nunc congue nisi vitae suscipit tellus mauris. Amet mauris commodo quis imperdiet massa. Et magnis dis parturient montes nascetur ridiculus. At imperdiet dui accumsan sit amet nulla facilisi morbi tempus. Vitae et leo duis ut diam quam nulla porttitor. Blandit turpis cursus in hac habitasse platea. Magna sit amet purus gravida quis blandit turpis cursus in. Sed faucibus turpis in eu mi bibendum. Blandit volutpat maecenas volutpat blandit aliquam etiam erat velit. Elementum pulvinar etiam non quam lacus suspendisse faucibus interdum posuere. Nunc pulvinar sapien et ligula ullamcorper. Quis commodo odio aenean sed adipiscing diam. Diam quis enim lobortis scelerisque fermentum dui faucibus. Et leo duis ut diam quam nulla porttitor massa.
     </p>
   </main>
+  <footer>
+    <h2>Reference</h2>
+    <ul>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mask-image">mask-image</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-mask-composite">-webkit-mask-composite</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mask-composite">mask-composite</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color">color notations</a></li>
+    </ul>
+  </footer>
 </body>
 </html>
