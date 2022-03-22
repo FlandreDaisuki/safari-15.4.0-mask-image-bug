@@ -8,42 +8,53 @@
   <style>
     main {
       margin: 0 auto;
-      max-width: 300px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      place-items: center;
     }
-    main > p {
+    section > p {
       max-height: 200px;
+      max-width: 300px;
       overflow-y: auto;
     }
-    .fade-bottom {
-      /* 自己的實作 */
+    .fade-bottom-1 {
       mask-image: linear-gradient(to bottom, white 50%, transparent 100%);
     }
     .fade-bottom-2 {
-      /* 前人留下來的坑 */
-      mask-image: linear-gradient(to bottom, rgba(#000, 1) 50%, rgba(#000, 0) 100%), linear-gradient(to bottom, rgba(#000, 1) 0%, rgba(#000, 0) 0%);
+      -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0)), color-stop(2em, black)), -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0)), color-stop(0em, black));
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, black 2em), linear-gradient(to top, rgba(0, 0, 0, 0) 0, black 0em);
+      mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0)), color-stop(2em, black)), -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0)), color-stop(0em, black));
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, black 2em), linear-gradient(to top, rgba(0, 0, 0, 0) 0, black 0em);
       -webkit-mask-composite: source-in;
       mask-composite: source-in;
     }
     .fade-bottom-3 {
-      /* 小小整理前人留下來的坑 */
       mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%), linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 0%);
       -webkit-mask-composite: source-in;
-      mask-composite: source-in;
     }
   </style>
 </head>
 <body>
   <h1>Safari 15.4.0 -webkit-mask-composite bug</h1>
   <main>
-    <p class="fade-bottom">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut etiam sit amet nisl purus in mollis nunc. Nulla facilisi etiam dignissim diam. Aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Enim ut tellus elementum sagittis vitae et leo duis. Ultrices neque ornare aenean euismod. Sem viverra aliquet eget sit amet. Ultrices sagittis orci a scelerisque purus semper eget duis at. Blandit libero volutpat sed cras ornare. Posuere lorem ipsum dolor sit amet consectetur adipiscing. Sed pulvinar proin gravida hendrerit lectus.
-    </p>
-    <p class="fade-bottom-2">
-      Elementum nibh tellus molestie nunc. Nulla facilisi cras fermentum odio eu feugiat pretium nibh. Consectetur lorem donec massa sapien faucibus et molestie ac feugiat. Sed libero enim sed faucibus. Natoque penatibus et magnis dis parturient montes. Nunc vel risus commodo viverra maecenas accumsan. Eros in cursus turpis massa tincidunt dui ut ornare. Lacus viverra vitae congue eu consequat ac felis donec et. Ipsum consequat nisl vel pretium lectus quam id leo in. Risus feugiat in ante metus dictum at tempor commodo. Suspendisse in est ante in nibh. Dolor sit amet consectetur adipiscing elit pellentesque habitant. Duis ut diam quam nulla porttitor. Quam pellentesque nec nam aliquam sem et tortor consequat id. Malesuada nunc vel risus commodo viverra maecenas accumsan lacus.
-    </p>
-    <p class="fade-bottom-3">
-      Habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Elit sed vulputate mi sit amet mauris commodo. Tincidunt vitae semper quis lectus nulla at volutpat diam. Et netus et malesuada fames ac turpis egestas maecenas. Orci nulla pellentesque dignissim enim sit. Mauris nunc congue nisi vitae suscipit tellus mauris. Amet mauris commodo quis imperdiet massa. Et magnis dis parturient montes nascetur ridiculus. At imperdiet dui accumsan sit amet nulla facilisi morbi tempus. Vitae et leo duis ut diam quam nulla porttitor. Blandit turpis cursus in hac habitasse platea. Magna sit amet purus gravida quis blandit turpis cursus in. Sed faucibus turpis in eu mi bibendum. Blandit volutpat maecenas volutpat blandit aliquam etiam erat velit. Elementum pulvinar etiam non quam lacus suspendisse faucibus interdum posuere. Nunc pulvinar sapien et ligula ullamcorper. Quis commodo odio aenean sed adipiscing diam. Diam quis enim lobortis scelerisque fermentum dui faucibus. Et leo duis ut diam quam nulla porttitor massa.
-    </p>
+    <section>
+      <h2>My Implementation</h2>
+      <p class="fade-bottom-1">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut etiam sit amet nisl purus in mollis nunc. Nulla facilisi etiam dignissim diam. Aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Enim ut tellus elementum sagittis vitae et leo duis. Ultrices neque ornare aenean euismod. Sem viverra aliquet eget sit amet. Ultrices sagittis orci a scelerisque purus semper eget duis at. Blandit libero volutpat sed cras ornare. Posuere lorem ipsum dolor sit amet consectetur adipiscing. Sed pulvinar proin gravida hendrerit lectus.
+      </p>
+    </section>
+    <section>
+      <h2>Previous Implementation</h2>
+      <p class="fade-bottom-2">
+        Elementum nibh tellus molestie nunc. Nulla facilisi cras fermentum odio eu feugiat pretium nibh. Consectetur lorem donec massa sapien faucibus et molestie ac feugiat. Sed libero enim sed faucibus. Natoque penatibus et magnis dis parturient montes. Nunc vel risus commodo viverra maecenas accumsan. Eros in cursus turpis massa tincidunt dui ut ornare. Lacus viverra vitae congue eu consequat ac felis donec et. Ipsum consequat nisl vel pretium lectus quam id leo in. Risus feugiat in ante metus dictum at tempor commodo. Suspendisse in est ante in nibh. Dolor sit amet consectetur adipiscing elit pellentesque habitant. Duis ut diam quam nulla porttitor. Quam pellentesque nec nam aliquam sem et tortor consequat id. Malesuada nunc vel risus commodo viverra maecenas accumsan lacus.
+      </p>
+    </section>
+    <section>
+      <h2>Minimum Reproducible Implementation</h2>
+      <p class="fade-bottom-3">
+        Habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Elit sed vulputate mi sit amet mauris commodo. Tincidunt vitae semper quis lectus nulla at volutpat diam. Et netus et malesuada fames ac turpis egestas maecenas. Orci nulla pellentesque dignissim enim sit. Mauris nunc congue nisi vitae suscipit tellus mauris. Amet mauris commodo quis imperdiet massa. Et magnis dis parturient montes nascetur ridiculus. At imperdiet dui accumsan sit amet nulla facilisi morbi tempus. Vitae et leo duis ut diam quam nulla porttitor. Blandit turpis cursus in hac habitasse platea. Magna sit amet purus gravida quis blandit turpis cursus in. Sed faucibus turpis in eu mi bibendum. Blandit volutpat maecenas volutpat blandit aliquam etiam erat velit. Elementum pulvinar etiam non quam lacus suspendisse faucibus interdum posuere. Nunc pulvinar sapien et ligula ullamcorper. Quis commodo odio aenean sed adipiscing diam. Diam quis enim lobortis scelerisque fermentum dui faucibus. Et leo duis ut diam quam nulla porttitor massa.
+      </p>
+    </section>
   </main>
   <footer>
     <h2>Reference</h2>
